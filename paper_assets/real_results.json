@@ -1,0 +1,227 @@
+{
+  "device": "mps",
+  "model_id": "MIT/ast-finetuned-audioset-10-10-0.4593",
+  "seed": 42,
+  "diag_n_samples_used": 64,
+  "diagnostic": {
+    "n=0": {
+      "patch_norm_median": 32.26345443725586,
+      "patch_norm_iqr": 3.099576950073242,
+      "patch_norm_p99": 37.166568756103516,
+      "patch_norm_max": 39.72610855102539,
+      "patch_norm_mean": 32.32283401489258,
+      "patch_norm_std": 2.078190326690674,
+      "outlier_cutoff": 40.012396812438965,
+      "outlier_pct": 0.0,
+      "attn_frobenius_mean": 1.819674402475357,
+      "attn_frobenius_std": 0.13069848494774078,
+      "register_attn_mass_mean": 0.0,
+      "register_attn_mass_std": 0.0,
+      "n_special": 128,
+      "n_register": 0,
+      "n_patch": 77568,
+      "register_norm_mean": null,
+      "special_norm_mean": 36.40822982788086
+    },
+    "n=2": {
+      "patch_norm_median": 32.32892608642578,
+      "patch_norm_iqr": 3.064544677734375,
+      "patch_norm_p99": 37.18083190917969,
+      "patch_norm_max": 39.681488037109375,
+      "patch_norm_mean": 32.374271392822266,
+      "patch_norm_std": 2.060528039932251,
+      "outlier_cutoff": 39.99028778076172,
+      "outlier_pct": 0.0,
+      "attn_frobenius_mean": 1.787303350865841,
+      "attn_frobenius_std": 0.12882818437594545,
+      "register_attn_mass_mean": 0.021403799182735384,
+      "register_attn_mass_std": 0.004910444660143822,
+      "n_special": 128,
+      "n_register": 128,
+      "n_patch": 77568,
+      "register_norm_mean": 37.130279541015625,
+      "special_norm_mean": 36.364471435546875
+    },
+    "n=4": {
+      "patch_norm_median": 32.385807037353516,
+      "patch_norm_iqr": 3.0336265563964844,
+      "patch_norm_p99": 37.1966438293457,
+      "patch_norm_max": 39.63950729370117,
+      "patch_norm_mean": 32.42630386352539,
+      "patch_norm_std": 2.044689893722534,
+      "outlier_cutoff": 39.96987342834473,
+      "outlier_pct": 0.0,
+      "attn_frobenius_mean": 1.762584313750267,
+      "attn_frobenius_std": 0.12771079094918406,
+      "register_attn_mass_mean": 0.03881910815834999,
+      "register_attn_mass_std": 0.008348152459329945,
+      "n_special": 128,
+      "n_register": 256,
+      "n_patch": 77568,
+      "register_norm_mean": 36.98611068725586,
+      "special_norm_mean": 36.37602233886719
+    },
+    "n=8": {
+      "patch_norm_median": 32.469486236572266,
+      "patch_norm_iqr": 2.9992141723632812,
+      "patch_norm_p99": 37.24694061279297,
+      "patch_norm_max": 39.64879608154297,
+      "patch_norm_mean": 32.50374221801758,
+      "patch_norm_std": 2.024477243423462,
+      "outlier_cutoff": 39.96752166748047,
+      "outlier_pct": 0.0,
+      "attn_frobenius_mean": 1.7226441502571106,
+      "attn_frobenius_std": 0.12576853571283647,
+      "register_attn_mass_mean": 0.06730526126921177,
+      "register_attn_mass_std": 0.012488692790699309,
+      "n_special": 128,
+      "n_register": 512,
+      "n_patch": 77568,
+      "register_norm_mean": 36.68442153930664,
+      "special_norm_mean": 36.443641662597656
+    },
+    "n=16": {
+      "patch_norm_median": 32.55251693725586,
+      "patch_norm_iqr": 2.9948673248291016,
+      "patch_norm_p99": 37.30349349975586,
+      "patch_norm_max": 39.72478103637695,
+      "patch_norm_mean": 32.586700439453125,
+      "patch_norm_std": 2.01248836517334,
+      "outlier_cutoff": 40.03968524932861,
+      "outlier_pct": 0.0,
+      "attn_frobenius_mean": 1.6575120091438293,
+      "attn_frobenius_std": 0.12058087569802377,
+      "register_attn_mass_mean": 0.11150911077857018,
+      "register_attn_mass_std": 0.017943308412893457,
+      "n_special": 128,
+      "n_register": 1024,
+      "n_patch": 77568,
+      "register_norm_mean": 36.257781982421875,
+      "special_norm_mean": 36.563228607177734
+    }
+  },
+  "training_protocol": {
+    "epochs": 2,
+    "batch_size": 4,
+    "lr": 0.0001,
+    "train_per_fold": 80,
+    "test_per_fold": 32,
+    "test_fold": 5,
+    "note": "Reduced compute due to MPS / time budget; not full 5-fold CV."
+  },
+  "training": {
+    "n=0": {
+      "best_train_acc": 0.7,
+      "best_test_acc": 0.28125,
+      "final_test_acc": 0.28125,
+      "final_attn_frob": 1.4742023944854736,
+      "final_reg_mass": 0.0,
+      "epochs": 2,
+      "train_subset": 80,
+      "test_subset": 32,
+      "wall_time_sec": 57.285999059677124
+    },
+    "n=4": {
+      "best_train_acc": 0.4625,
+      "best_test_acc": 0.1875,
+      "final_test_acc": 0.1875,
+      "final_attn_frob": 2.5275676250457764,
+      "final_reg_mass": 0.002186112105846405,
+      "epochs": 2,
+      "train_subset": 80,
+      "test_subset": 32,
+      "wall_time_sec": 68.65676307678223
+    }
+  },
+  "training_dynamics": {
+    "n=0": {
+      "train_acc": [
+        0.1125,
+        0.7
+      ],
+      "test_acc": [
+        0.1875,
+        0.28125
+      ],
+      "attn_frob": [
+        1.7059967517852783,
+        1.4742023944854736
+      ],
+      "reg_mass": [
+        0.0,
+        0.0
+      ]
+    },
+    "n=4": {
+      "train_acc": [
+        0.1,
+        0.4625
+      ],
+      "test_acc": [
+        0.0625,
+        0.1875
+      ],
+      "attn_frob": [
+        1.8192486763000488,
+        2.5275676250457764
+      ],
+      "reg_mass": [
+        0.003520695958286524,
+        0.002186112105846405
+      ]
+    }
+  },
+  "label_names": [
+    "dog",
+    "rooster",
+    "pig",
+    "cow",
+    "frog",
+    "cat",
+    "hen",
+    "insects",
+    "sheep",
+    "crow",
+    "rain",
+    "sea_waves",
+    "crackling_fire",
+    "crickets",
+    "chirping_birds",
+    "water_drops",
+    "wind",
+    "pouring_water",
+    "toilet_flush",
+    "thunderstorm",
+    "crying_baby",
+    "sneezing",
+    "clapping",
+    "breathing",
+    "coughing",
+    "footsteps",
+    "laughing",
+    "brushing_teeth",
+    "snoring",
+    "drinking_sipping",
+    "door_wood_knock",
+    "mouse_click",
+    "keyboard_typing",
+    "door_wood_creaks",
+    "can_opening",
+    "washing_machine",
+    "vacuum_cleaner",
+    "clock_alarm",
+    "clock_tick",
+    "glass_breaking",
+    "helicopter",
+    "chainsaw",
+    "siren",
+    "car_horn",
+    "engine",
+    "train",
+    "church_bells",
+    "airplane",
+    "fireworks",
+    "hand_saw"
+  ],
+  "artifact_threshold_iqr_multiplier": 2.5
+}

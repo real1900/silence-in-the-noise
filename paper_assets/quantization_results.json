@@ -1,0 +1,15 @@
+{
+  "n_clips": 100,
+  "model_id": "MIT/ast-finetuned-audioset-10-10-0.4593",
+  "fp32_latency_ms_per_sample": 443.03399324417114,
+  "int8_latency_ms_per_sample": 974.8387455940247,
+  "speedup_int8_over_fp32": 0.45446900345985464,
+  "fp32_size_mb": 328.7783203125,
+  "int8_size_mb_state_dict": 85.90344715118408,
+  "size_reduction_pct": 73.8719246848351,
+  "token_cosine_similarity_mean": 0.9930544495582581,
+  "token_cosine_similarity_p1": 0.9672530889511108,
+  "relative_l2_drift_mean": 0.1116122156381607,
+  "relative_l2_drift_p99": 0.2564299404621124,
+  "top5_rank_agreement_cls": 0.8339999999999997
+}

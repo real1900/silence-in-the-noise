@@ -1,0 +1,17 @@
+# Core dependencies for reproducing the paper's experiments.
+# Tested with Python 3.10+. Pin versions if you need exact reproducibility.
+torch>=2.0
+transformers>=4.40
+datasets>=2.18
+numpy>=1.24
+scipy>=1.10
+matplotlib>=3.7
+soundfile>=0.12
+
+# CUDA-only: required for cuda_quantization_test.py (bitsandbytes Linear8bitLt).
+# Skip on CPU/Apple-Silicon-only setups (the x86/ARM INT8 paths use torch's
+# native dynamic quantization and do not need this).
+bitsandbytes>=0.43 ; platform_system == "Linux"
+
+# Only needed if you regenerate the companion notebook from the patch scripts.
+nbformat>=5.9

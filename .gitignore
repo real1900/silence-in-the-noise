@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+
+# Environments
+.venv/
+venv/
+env/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs / scratch
+*.log
+
+# LaTeX build artifacts (keep the .tex and the final .pdf)
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Local datasets / model caches (downloaded on demand; see README)
+esc50_data/
+*.wav
+.cache/

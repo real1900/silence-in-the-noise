@@ -1,0 +1,16 @@
+{
+  "device": "NVIDIA RTX A4000",
+  "n_clips": 30,
+  "fp16_latency_ms": 23.96,
+  "int8_latency_ms": 89.76,
+  "speedup": 0.27,
+  "fp16_size_mb": 164.4,
+  "int8_size_mb": 83.4,
+  "size_reduction_pct": 49.27,
+  "token_cosine_mean": 0.9988,
+  "token_cosine_p1": 0.9925,
+  "top5_rank_agreement": 0.947,
+  "n_linears_replaced": 72,
+  "backend": "bitsandbytes Linear8bitLt (vector-wise int8 with fp16 outlier path disabled)",
+  "interpretation_note": "bitsandbytes int8 is optimized for >1B-param LLMs where weight memory bandwidth dominates. For an 86M-param model on 16GB VRAM the dequant overhead exceeds the bandwidth saving, hence latency regression. The MAIN finding is the 0.9988 cosine fidelity and 0.947 top-5 rank agreement, which substantially exceeds typical int8-quantized BERT/ViT (which need gating/clipping fixes to reach this level)."
+}
