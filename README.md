@@ -30,6 +30,14 @@ cloud compute.
    x86 / Apple-Silicon / CUDA with no architectural fixes (strict cosine+top-5
    bar met on the CUDA path).
 
+## Venue-customized versions
+
+`submissions/` holds standalone, submission-ready condensations of this paper for
+four venues (ICASSP, DCASE Workshop, Interspeech — anonymized, and a NeurIPS-style
+ML workshop), each with its own template and figures. See
+[`submissions/README.md`](submissions/README.md). The full-length / arXiv version
+is `Imdad_Final_Research_Paper.{tex,pdf}` in the repo root.
+
 ## Repository layout
 
 ```
