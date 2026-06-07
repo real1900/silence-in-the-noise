@@ -5,30 +5,71 @@
   </picture>
 </p>
 
-# Silence in the Noise
+<h1 align="center">Silence in the Noise</h1>
 
-**Probing Attention Artifacts and Register Tokens in Audio Spectrogram Transformers**
-Suleman Imdad — Whiting School of Engineering, Johns Hopkins University
+<p align="center"><b>Probing Attention Artifacts and Register Tokens in Audio Spectrogram Transformers</b></p>
 
-<sub>Completed as coursework for **JHU EN.705.744 — Deep Learning Using Transformers**. This is a personal student project and is **not** an official Johns Hopkins University publication or endorsed by the University.</sub>
+<p align="center"><b>Suleman Imdad</b> — M.S. in Artificial Intelligence, Johns Hopkins University (2026)</p>
+
+<p align="center">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-yellow.svg"></a>
+  <img alt="Python 3.11" src="https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white">
+  <img alt="Built on PyTorch" src="https://img.shields.io/badge/Built%20on-PyTorch-EE4C2C?logo=pytorch&logoColor=white">
+  <img alt="Hugging Face Transformers (AST)" src="https://img.shields.io/badge/%F0%9F%A4%97%20Transformers-AST-FFD21E">
+  <img alt="Dataset: ESC-50" src="https://img.shields.io/badge/Data-ESC--50-1b9e77">
+  <a href="Imdad_Final_Research_Paper.pdf"><img alt="Paper (PDF)" src="https://img.shields.io/badge/Paper-PDF-b31b1b"></a>
+</p>
+
+<p align="center"><sub>Completed as coursework for <b>JHU EN.705.744 — Deep Learning Using Transformers</b>. A personal student project; <b>not</b> an official Johns Hopkins University publication or endorsed by the University.</sub></p>
 
 Companion code, data artifacts, and figures for the paper. The full empirical
 pipeline reproduces from a clean environment in a few hours and ~\$1 of commodity
 cloud compute.
 
-## What this paper finds
+## Key results at a glance
 
-1. **AST is outlier-free.** The publicly released AudioSet-pretrained AST has a
-   tight, unimodal patch-token norm distribution (final-layer max/median = 1.23,
-   ratio ≤ 1.93 at every layer) — it does **not** develop the Darcet-style
-   high-norm "register" artifact documented in deep ViTs.
+**The whole paper in one number.** A transformer's max-to-median final-layer
+token-norm ratio $r$ predicts whether post-training INT8 quantization will survive.
+AST sits at **1.23** — deep in the safe zone — while the ViT/BERT/LLM families it is
+architecturally near-identical to sit far past the fix-required threshold.
+
+<p align="center"><img src="assets/fig_readme_maxmedian.png" width="760" alt="Max-to-median token-norm ratio across transformer families; AST at 1.23 in the INT8-safe zone"></p>
+
+**AST is outlier-free at every layer** — no late-layer phase transition, unlike deep ViTs.
+
+<p align="center"><img src="assets/fig_readme_layerwise.png" width="720" alt="Per-layer max/median ratio and outlier rate for AST, baseline vs registers"></p>
+
+**So naive PT-INT8 just works** — 0.98–0.999 token-state fidelity and 49–74% smaller, on three backends, with zero outlier mitigations.
+
+<p align="center"><img src="assets/fig_readme_int8.png" width="840" alt="PT-INT8 fidelity and size reduction across x86, Apple M1, and CUDA backends"></p>
+
+### How the argument fits together
+
+```mermaid
+flowchart TD
+    A["Deep ViTs and LLMs grow<br/>high-norm outlier tokens"] --> B["Interpretability liability:<br/>need register tokens (Darcet 2024)"]
+    A --> C["Deployment liability:<br/>INT8 quantization collapses (Bondarenko 2023)"]
+    D["Test AST on ESC-50<br/>(AudioSet-pretrained)"] --> E{"Outlier tokens in AST?"}
+    E -->|"max/median = 1.23, none found"| F["No - AST is outlier-free"]
+    F --> G["Registers reproduce but there is<br/>nothing to repair (prophylactic)"]
+    F --> H["Naive PT-INT8 works - free deployment<br/>(~0.99 cosine, up to 4x smaller)"]
+```
+
+<details>
+<summary><b>The three findings, in words</b></summary>
+
+1. **AST is outlier-free.** The public AudioSet-pretrained AST has a tight,
+   unimodal patch-token norm distribution (final-layer max/median = 1.23, ratio
+   ≤ 1.93 at every layer) — it does **not** develop the Darcet-style high-norm
+   "register" artifact documented in deep ViTs.
 2. **Register tokens reproduce mechanically** (absorb ~8.5× chance attention) but
    give only a small, non-significant fine-tuning stability trend on ESC-50
-   (σ 1.04 → 0.73 pp; +0.33 pp mean; p ≈ 0.12–0.15).
+   (σ 1.04 → 0.73 pp; +0.33 pp mean; p ≈ 0.12–0.15) — there is no pathology to fix.
 3. **AST is INT8 deployment-friendly.** Naive post-training INT8 quantization
    reaches 0.98–0.999 token-state cosine fidelity and 49–74% size reduction on
-   x86 / Apple-Silicon / CUDA with no architectural fixes (strict cosine+top-5
-   bar met on the CUDA path).
+   x86 / Apple-Silicon / CUDA with no architectural fixes (the strict cosine+top-5
+   bar is met cleanly on the CUDA path).
+</details>
 
 ## Venue-customized versions
 
@@ -52,8 +93,11 @@ analyze_5fold.py                        Bootstrap CIs, paired/permutation tests,
 spectrogram_attention.py                Attention-map figure
 generate_deployment_diagram.py          Deployment pipeline figure
 render_cuda_quant_fig.py                CUDA quantization figure
+generate_readme_figures.py              README hero charts (from real data) -> assets/
 vast_run.sh / gcp_run.sh / GCP_RUNBOOK.md   Cloud spot-rental run scripts
 paper_assets/                           All figures (fig_*.pdf) + result JSON/NPZ
+submissions/                            Venue-customized submission-ready papers
+assets/                                 README figures + JHU logo
 ```
 
 ## Setup
