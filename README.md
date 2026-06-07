@@ -1,7 +1,13 @@
+<p align="center">
+  <img src="assets/jhu-logo.png" alt="Johns Hopkins University" width="300">
+</p>
+
 # Silence in the Noise
 
 **Probing Attention Artifacts and Register Tokens in Audio Spectrogram Transformers**
 Suleman Imdad — Whiting School of Engineering, Johns Hopkins University
+
+<sub>Completed as coursework for **JHU EN.705.744 — Deep Learning Using Transformers**. This is a personal student project and is **not** an official Johns Hopkins University publication or endorsed by the University.</sub>
 
 Companion code, data artifacts, and figures for the paper. The full empirical
 pipeline reproduces from a clean environment in a few hours and ~\$1 of commodity
@@ -102,3 +108,9 @@ of spot rentals. Total: ~\$1.
 
 Code is released under the [MIT License](LICENSE). The ESC-50 dataset and the AST
 checkpoint are governed by their respective upstream licenses.
+
+The Johns Hopkins University wordmark (`assets/jhu-logo.png`) is public domain for
+copyright purposes but is a **trademark** of Johns Hopkins University. It is used
+here solely for coursework attribution and does **not** imply University
+endorsement; it is not covered by the MIT License above. Official brand assets and
+usage guidelines: <https://brand.jhu.edu>.
