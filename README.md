@@ -16,11 +16,6 @@ Companion code, data artifacts, and figures for the paper. The full empirical
 pipeline reproduces from a clean environment in a few hours and ~\$1 of commodity
 cloud compute.
 
-> **Note:** replace `USERNAME` below with your GitHub handle after you create the
-> remote (e.g. `git remote add origin https://github.com/USERNAME/silence-in-the-noise.git`).
-> The same placeholder appears in the paper's title footnote and Reproducibility
-> section — update it there too.
-
 ## What this paper finds
 
 1. **AST is outlier-free.** The publicly released AudioSet-pretrained AST has a
